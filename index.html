@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <header>
+    <p>
+      <a href="#" lang="en" onclick="changeLang('en')">English</a>
+      <a href="#" lang="de" onclick="changeLang('de')">German</a>
+      <a href="#" lang="pl" onclick="changeLang('pl')">Polski</a>
+    </p>
+  </header>
+  <main>
+    <h1 data-lang-en="Hello!" data-lang-de="Hallo!" data-lang-pl="Cześć!">Hello!</h1>
+    <p data-lang-en="Hello!" data-lang-de="Hallo!" data-lang-pl="Cześć!">Hello!</p>
+    <div data-lang-en="Hello!" data-lang-de="Hallo!" data-lang-pl="Cześć!">Hello!</div>
+    <span data-lang-en="Hello!" data-lang-de="Hallo!" data-lang-pl="Cześć!">Hello!</span>
+  </main>
+
+  <script>
+    function changeLang(lang) {
+      const langSet = 'lang' + lang.charAt(0).toUpperCase() + lang.slice(1, 2);
+      document.querySelectorAll(`[data-lang-${lang}]`).forEach((el) => el.innerText = el.dataset[`${langSet}`]);
+    }
+  </script>
+</body>
+</html>
